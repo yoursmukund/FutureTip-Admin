@@ -1,0 +1,57 @@
+<div class="row">
+	<div class="col-xs-12">
+		<label>Reading Details:</label>
+		<div class="row">
+		  <div class="col-xs-12">
+		    {{ reading.timestamp }}
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-xs-12">
+		    {{ reading.subject }}
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-xs-12">
+		    {{ reading.problem }}
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-xs-12">
+		    {{ reading.type }}
+		  </div>
+		</div>
+		<div class="row">
+		  <div class="col-xs-12">
+		    {{ reading.username }}
+		  </div>
+		</div>
+	</div>
+</div>
+<br>
+<div class="row">
+	<div class="col-xs-12">
+		<form #form = "ngForm" (ngSubmit) = "onSubmit(form)">
+			<div class="row">
+		        <div class="col-xs-12">
+		            <label for="Solution">Add a solution</label>
+		            <input
+		              type="text"
+		              name="solution"
+		              ngModel
+		              class="form-control">
+		        </div>
+     		</div>
+     		<br>
+     		<div class="row">
+		        <div class="col-xs-12">
+		          <button
+		            type="submit"
+		            class="btn btn-success"
+		            [disabled]="!form.valid">Save</button>
+		          <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+    			</div>
+     		</div>
+		</form>
+	</div>
+</div>

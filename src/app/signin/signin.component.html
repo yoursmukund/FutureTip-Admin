@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="form-group col-xs-4">
+		<form (ngSubmit) = "onSubmit(form)" #form = "ngForm">
+			<label>
+				Email
+			</label>
+			<input type="Email" name="email" ngModel class="form-control">
+			<label>
+				Password
+			</label>
+			<input type="Password" name="password" ngModel class="form-control">
+			<br>
+			<button class="btn btn-primary" name="submit" type="submit">
+				SignIn
+			</button>
+		</form>
+	</div>
+</div>

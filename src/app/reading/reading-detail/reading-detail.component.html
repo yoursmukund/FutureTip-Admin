@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ reading.topConcern }}</h1>
+  </div>
+</div>
+<label>Reading Details:</label>
+<div class="row">
+  <div class="col-xs-12">
+    {{ reading.timestamp }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ reading.subject }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ reading.problem }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ reading.type }}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    {{ reading.username }}
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+    <div
+      class="btn-group" appDropdown>
+      <button
+        type="button"
+        class="btn btn-primary dropdown-toggle">
+        Manage Reading <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a style="cursor: pointer;" (click)="onEditReading()">Edit Reading</a></li>
+        <li><a style="cursor: pointer;" (click)="onDeleteReading()">Delete Reading</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
