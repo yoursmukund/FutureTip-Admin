@@ -10,14 +10,22 @@ import { Http, Response } from '@angular/http';
 
 })
 export class ReadingListComponent implements OnInit {
-
+	keys = [];
 	readings: Reading[] = [];
 	constructor(private readingService:ReadingService) { 
 	}
 
 	ngOnInit() {
 		this.readingService.getReadings().subscribe(
-			(readings:Reading[]) => {this.readings = readings}
+			(readings) => {
+				for(let reading in readings){
+					this.readings.push(readings[reading]);
+					this.keys.push(reading);
+				}
+				
+				console.log(this.readings);
+			}
+
 		);
 	}
 

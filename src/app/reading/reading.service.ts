@@ -8,16 +8,11 @@ export class ReadingService{
 	constructor(private httpService: Http){
 
 	}
-    readings: Reading[] = [];
+    readings;
 	getReadings() {
 	    return this.httpService.get('https://futuretip-df006.firebaseio.com/reading.json').map(
             (response:Response) => {
-                const readings = response.json();
-                this.readings = [];
-                for(let reading in readings){
-                    this.readings.push(readings[reading]);
-
-                }
+                this.readings = response.json();
                 return this.readings;
 
             }
@@ -25,18 +20,22 @@ export class ReadingService{
 
     }
 
-    getReading(id:number){
+    saveReading(reading:Reading, key:string){
+        return this.httpService.patch('https://futuretip-df006.firebaseio.com/reading/'+key+'.json', reading);
+    }
+
+    getReading(key:string){
         if(this.readings.length===0){
             this.getReadings();
         }
-        return this.readings[id];
+        return this.readings[key];
     }
 
     readingsDataChanged(){
 
     }
 
-    deleteReading(id:number){
+    deleteReading(id:string){
 
     }
 }

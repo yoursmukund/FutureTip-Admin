@@ -10,14 +10,14 @@ import { Reading } from '../reading.model';
 })
 export class ReadingDetailComponent implements OnInit {
 
-	id:number;
+	id:string;
 	reading:Reading;
 	constructor(private route:ActivatedRoute, private readingService:ReadingService, private router:Router) { }
 
 	ngOnInit() {
 		this.route.params.subscribe(
 			(params:Params) => {
-				this.id = +params['id'];
+				this.id = params['id'];
 				this.reading = this.readingService.getReading(this.id);
 			}
 		);

@@ -11,19 +11,20 @@ import { Reading } from '../reading.model';
 })
 export class ReadingEditComponent implements OnInit {
 
-	id:number;
+	id:string;
 	reading:Reading;
 	constructor(private route:ActivatedRoute, private readingService:ReadingService) { }
 
 	ngOnInit() {
 		this.route.params.subscribe(
-				(params:Params) => {this.id = +params['id']}
+				(params:Params) => {this.id = params['id']}
 			);
 		this.reading = this.readingService.getReading(this.id);
 	}
 
 	onSubmit(form:NgForm){
-		console.log(form);
+		this.reading.solution = form.value.solution;
+		this.readingService.saveReading(this.reading, this.id).subscribe(()=>{});
 	}
 
 }
