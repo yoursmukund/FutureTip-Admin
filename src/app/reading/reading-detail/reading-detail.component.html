@@ -1,36 +1,24 @@
+<h3>Reading details</h3>
 <div class="row">
-  <div class="col-xs-12">
-    <h1>{{ reading.topConcern }}</h1>
-  </div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td><strong>From</strong></td>
+          <td>{{ reading.username }}</td>
+        </tr>
+        <tr>
+          <td><strong>Reading Type</strong></td>
+          <td>{{ reading.type }}</td>
+        </tr>
+        <tr>
+          <td><strong>Submitted At</strong></td>
+          <td>{{ reading.timestamp }}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
-<label>Reading Details:</label>
-<div class="row">
-  <div class="col-xs-12">
-    {{ reading.timestamp }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ reading.subject }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ reading.problem }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ reading.type }}
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    {{ reading.username }}
-  </div>
-</div>
-<br>
-<div class="row">
+<div class="row pull-right">
   <div class="col-xs-12">
     <div
       class="btn-group" appDropdown>
@@ -45,4 +33,5 @@
       </ul>
     </div>
   </div>
+</div>
 </div>

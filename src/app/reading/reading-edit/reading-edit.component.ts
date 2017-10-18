@@ -13,7 +13,11 @@ export class ReadingEditComponent implements OnInit {
 
 	id:string;
 	reading:Reading;
-	constructor(private route:ActivatedRoute, private readingService:ReadingService) { }
+	showSuccess = false;
+	showError = false;
+	success: string;
+	error:string;
+	constructor(private router: Router, private route:ActivatedRoute, private readingService:ReadingService) { }
 
 	ngOnInit() {
 		this.route.params.subscribe(
@@ -24,7 +28,23 @@ export class ReadingEditComponent implements OnInit {
 
 	onSubmit(form:NgForm){
 		this.reading.solution = form.value.solution;
-		this.readingService.saveReading(this.reading, this.id).subscribe(()=>{});
+		this.readingService.saveReading(this.reading, this.id).subscribe(
+				(response) => {
+					this.success = "Solution saved successfully";
+					this.showSuccess = true;
+					this.showError = false;
+				},
+				(error:Error) => {
+					this.error = "Error! Solution not saved!"
+					this.showError = true;
+					this.showSuccess = false;
+				}
+			);
 	}
+
+	onCancel(){
+		this.router.navigate(['/readings']);
+	}
+
 
 }

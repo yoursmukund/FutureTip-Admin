@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForm} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { AuthService } from './auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -8,13 +9,17 @@ import {NgForm} from '@angular/forms';
 })
 export class SigninComponent implements OnInit {
 
-	constructor() { }
-
+	constructor(private authService:AuthService) { }
+	failureMessage:string;
+	showFailureMessage: boolean = false;
 	ngOnInit() {
 	}
 
 	onSubmit(form:NgForm){
-		console.log(form);
+		this.authService.signIn(form.value.email, form.value.password).catch((message:string)=>{
+			this.failureMessage = message; 
+			this.showFailureMessage = true;
+		});
 	}
 
 }

@@ -1,32 +1,30 @@
+<h3>Reading details</h3>
 <div class="row">
-	<div class="col-xs-12">
-		<label>Reading Details:</label>
-		<div class="row">
-		  <div class="col-xs-12">
-		    {{ reading.timestamp }}
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-xs-12">
-		    {{ reading.subject }}
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-xs-12">
-		    {{ reading.problem }}
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-xs-12">
-		    {{ reading.type }}
-		  </div>
-		</div>
-		<div class="row">
-		  <div class="col-xs-12">
-		    {{ reading.username }}
-		  </div>
-		</div>
-	</div>
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td><strong>From</strong></td>
+          <td>{{ reading.username }}</td>
+        </tr>
+        <tr>
+          <td><strong>Subject</strong></td>
+          <td>{{ reading.username }}</td>
+        </tr>
+        <tr>
+          <td><strong>Problem</strong></td>
+          <td>{{ reading.problem }}</td>
+        </tr>
+        <tr>
+          <td><strong>Reading Type</strong></td>
+          <td>{{ reading.type }}</td>
+        </tr>
+        <tr>
+          <td><strong>Submitted At</strong></td>
+          <td>{{ reading.timestamp }}</td>
+        </tr>
+      </tbody>
+    </table>
 </div>
 <br>
 <div class="row">
@@ -35,16 +33,17 @@
 			<div class="row">
 		        <div class="col-xs-12">
 		            <label for="Solution">Add a solution</label>
-		            <input
-		              type="text"
-		              name="solution"
-		              ngModel
-		              [(ngModel)] = reading.solution
-		              class="form-control">
+		            <textarea 
+                  type="text"
+                  name="solution"
+                  ngModel
+                  [(ngModel)] = reading.solution
+                  class="form-control">
+                </textarea>
 		        </div>
      		</div>
      		<br>
-     		<div class="row">
+     		<div class="row pull-right">
 		        <div class="col-xs-12">
 		          <button
 		            type="submit"
@@ -54,5 +53,13 @@
     			</div>
      		</div>
 		</form>
+		<br>
+    <br>
+		<div class="alert alert-danger text-center" *ngIf = "showError">
+			<strong>{{error}}</strong>
+		</div>
+		<div class="alert alert-success text-center" *ngIf = "showSuccess">
+			<strong>{{success}}</strong>
+		</div>
 	</div>
 </div>

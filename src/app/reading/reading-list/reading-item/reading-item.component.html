@@ -2,10 +2,13 @@
   style="cursor: pointer;"
   [routerLink]="[index]"
   routerLinkActive="active"
-  class="list-group-item clearfix">
+  [ngClass] = "{'list-group-item':true, 'clearfix':true}"
+  [class.not-solved] = "reading.solution==null"
+  [class.solved] = "reading.solution!=null">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ reading.username }}</h4>
     <p class="list-group-item-text">{{ reading.type }}</p>
     <p class="list-group-item-text">{{ reading.timestamp }}</p>
   </div>
 </a>
+<br>

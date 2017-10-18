@@ -5,14 +5,19 @@
 				Email
 			</label>
 			<input type="Email" name="email" ngModel class="form-control">
+			<br>
 			<label>
 				Password
 			</label>
 			<input type="Password" name="password" ngModel class="form-control">
 			<br>
 			<button class="btn btn-primary" name="submit" type="submit">
-				SignIn
+				Sign In
 			</button>
 		</form>
+		<br>
+		<div class="alert alert-danger" *ngIf = "showFailureMessage">
+  			<strong>Failure!</strong> {{failureMessage}}.
+		</div>
 	</div>
 </div>

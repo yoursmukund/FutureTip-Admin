@@ -22,10 +22,7 @@ export class ReadingListComponent implements OnInit {
 					this.readings.push(readings[reading]);
 					this.keys.push(reading);
 				}
-				
-				console.log(this.readings);
 			}
-
 		);
 	}
 
