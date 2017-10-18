@@ -9,10 +9,18 @@ import { AuthService } from '../signin/auth.service';
 export class HeaderComponent implements OnInit {
 
 	isAuthenticated:boolean;	
-	constructor(private authService:AuthService) { }
+	constructor(private authService:AuthService) {
+		this.isAuthenticated = this.authService.isAuthenticated();
+	}
 
 	ngOnInit() {
-		this.isAuthenticated = this.authService.isAuthenticated();
+	}
+
+	isAuth(){
+		return this.authService.isAuthenticated();
+	}
+	signOut(){
+		this.authService.signOut();
 	}
 
 }

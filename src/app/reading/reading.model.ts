@@ -3,16 +3,16 @@ export class Reading{
 	public subject:string;
 	public timestamp;
 	public topConcern: string;
-	public readingType: string;
+	public type: string;
 	public username: string;
 	public solution:string;
 
-	constructor(problem:string, subject:string, timestamp, topConcern: string, readingType: string, username: string, solution: string){
+	constructor(problem:string, subject:string, timestamp, topConcern: string, type: string, username: string, solution: string){
 		this.problem = problem;
 		this.subject = subject;
 		this.timestamp = timestamp;
 		this.topConcern = topConcern;
-		this.readingType = readingType;
+		this.type = type;
 		this.username = username;
 		this.solution = solution;
 	}
